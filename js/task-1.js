@@ -1,11 +1,11 @@
-const slugify = function (title) {
+const categories = document.querySelectorAll('#categories .item');
 
-    const slugArr = title.toLowerCase().split(' ');
+console.log('Number of categories:', categories.length);
 
-    return slugArr.join('-');
-}
+categories.forEach(category => {
+  const categoryTitle = category.querySelector('h2').textContent;
+  const subCategories = category.querySelectorAll('ul li');
 
-console.log(slugify("Arrays for beginners")); // "arrays-for-beginners"
-console.log(slugify("English for developer")); // "english-for-developer"
-console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
-console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
+  console.log(`Category: ${categoryTitle}`);
+  console.log(`Elements:`, subCategories.length);
+});

@@ -1,18 +1,13 @@
-const filterArray = function (numbers, value) {
-    
-    const resultArr = [];
+const nameInput = document.querySelector('#name-input');
+const nameOutput = document.querySelector('#name-output');
 
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > value) {
-            resultArr.push(numbers[i]);
-        }
-    }
+nameInput.addEventListener('input', () => {
 
-    return resultArr;
-}
+  const trimmedName = nameInput.value.trim();
 
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+  if (trimmedName === '') {
+    nameOutput.textContent = 'Anonymous';
+  } else {
+    nameOutput.textContent = trimmedName;
+  }
+});
